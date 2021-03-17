@@ -7,7 +7,7 @@ function dyformatContent(content, container) {
 	  contentArray.map(function (word) {
 		formattedContent.appendChild(dycreateWord(word));
 	  });
-	  console.log(contentArray);
+	  //console.log(contentArray);
 
 	  container.replaceChild(formattedContent, container.firstChild);
 };
