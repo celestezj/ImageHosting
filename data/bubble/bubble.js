@@ -1,7 +1,7 @@
 // 气泡特效，comes from https://butterfly.lete114.top/article/Butterfly-config.html#%E6%B0%94%E6%B3%A1
 
 function dybubblefn(){
-if ($('.post-bg#page-header')) {
+if ($('.post-bg#page-header').length>0) {
 function qipao() {
     $('.post-bg#page-header').circleMagic({
         radius: 10,
