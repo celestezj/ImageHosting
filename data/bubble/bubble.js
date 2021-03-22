@@ -2,7 +2,7 @@
 
 function dybubblefn(){
 function qipao() {
-    $('#page-header').circleMagic({
+    $('.post-bg#page-header').circleMagic({
         radius: 10,
         density: .2,
         color: 'rgba(255,255,255,.4)',
