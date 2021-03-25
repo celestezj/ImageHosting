@@ -11,6 +11,7 @@
                    ['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'] #翠绿色调
                    ['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'] #天青色调
 */
+if (document.getElementById("gitcalendar")){
   var gitcalendar_simplemode = false;
   var gitcalendar_user = "muggledy";
   var gitcalendar_apiurl = '';
@@ -259,3 +260,4 @@
       document.querySelector('.angle-wrapper').style.display = 'none'
     }
   };
+}
