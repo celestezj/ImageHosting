@@ -1,0 +1,119 @@
+div#dypostdates
+  - site.posts.each(function(post){
+    - let date = full_date(post.date)
+    p(style="display:none")=date
+  - })
+
+div#post-calendar
+
+script.
+  var dypostcalendar = echarts.init(document.getElementById('post-calendar'));
+  window.addEventListener("resize", () => {
+      dypostcalendar.resize();
+  });
+  
+  var startDate = moment().subtract(1, 'years');
+  var endDate = moment();
+  var rangeArr = '["' + startDate.format('YYYY-MM-DD') + '", "' + endDate.format('YYYY-MM-DD') + '"]';
+  
+  var dateMap = new Map();
+  var dypostdates = document.getElementById("dypostdates");
+  for(var i=0; i<dypostdates.childNodes.length; i++){
+    var date = dypostdates.childNodes[i].innerText.split(" ")[0];
+    var count = dateMap.get(date);
+    dateMap.set(date, count == null || count == undefined ? 1 : count + 1);
+  }
+  
+  var i = 0;
+  var datePosts = '[';
+  var dayTime = 3600 * 24 * 1000;
+  for (var time = startDate; time <= endDate; time += dayTime) {
+    var date = moment(time).format('YYYY-MM-DD');
+    datePosts = (i === 0 ? datePosts + '["' : datePosts + ', ["') + date + '", ' +
+        (dateMap.has(date) ? dateMap.get(date) : 0) + ']';
+    i++;
+  }
+  datePosts += ']';
+  
+  var postcalendaroption = {
+      animation: true,
+      title: {
+          top: 0,
+          text: '文章日历',
+          left: 'center',
+          textStyle: {
+              color: '#3C4858'
+          }
+      },
+      tooltip: {
+          padding: 10,
+          backgroundColor: '#555',
+          borderColor: '#777',
+          borderWidth: 1,
+          formatter: function (obj) {
+              var value = obj.value;
+              return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
+          }
+      },
+      visualMap: {
+          show: true,
+          showLabel: true,
+          min: 0,
+          max: 100,
+          type: 'piecewise',
+          pieces: [
+              {min: 0, max: 0, label: '0', color: '#ebedf0'},
+              {min: 0, max: 1, label: '1', color: '#c6e48b'},
+              {min: 1, max: 2, label: '2', color: '#7bc96f'},
+              {min: 2, max: 3, label: '3', color: '#239a3b'},
+              {min: 3, label: '4+', color: '#196127'}
+          ],
+          textStyle: {
+              color: '#000'
+          },
+          calculable: true,
+          itemWidth: 12,
+          itemHeight: 12,
+          orient: 'horizontal',
+          left: 'center',
+          bottom: 0
+      },
+      calendar: [{
+          left: 'center',
+          range: eval(rangeArr),
+          cellSize: [13, 13],
+          splitLine: {
+              show: false
+          },
+          itemStyle: {
+              width: '1.88679%',
+              height: '15px',
+              color: '#EEEEEE',
+              borderColor: '#FFF',
+              borderWidth: 2
+          },
+          yearLabel: {
+              show: false
+          },
+          monthLabel: {
+              nameMap: 'cn',
+              fontWeight: 'lighter',
+              fontSize: 12
+          },
+          dayLabel: {
+              show: true,
+              formatter: '{start}  1st',
+              fontWeight: 'lighter',
+              nameMap: ['日',' ',' ','三',' ',' ','六',],
+              fontSize: 12
+          }
+      }],
+      series: [{
+          type: 'heatmap',
+          coordinateSystem: 'calendar',
+          calendarIndex: 0,
+          data: eval(datePosts)
+      }]
+  };
+  
+  dypostcalendar.setOption(postcalendaroption);
