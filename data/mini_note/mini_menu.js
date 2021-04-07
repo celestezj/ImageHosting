@@ -108,16 +108,16 @@ function auto_timer(){
 }
 
 
-if(window.attachEvent){
-	window.attachEvent("onload",function() {
-		btf.isJqueryLoad(mini_note_wrapper);
-	});
-}else{
-	window.addEventListener("load",function() {
-		btf.isJqueryLoad(mini_note_wrapper);
-	},true);
-}
-
 if (typeof(btf)!="undefined"){
 	btf.isJqueryLoad(mini_note_wrapper);
+} else {
+	if(window.attachEvent){
+		window.attachEvent("onload",function() {
+			btf.isJqueryLoad(mini_note_wrapper);
+		});
+	}else{
+		window.addEventListener("load",function() {
+			btf.isJqueryLoad(mini_note_wrapper);
+		},true);
+	}
 }
