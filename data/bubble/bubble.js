@@ -48,5 +48,3 @@ function qipao() {
 qipao();
 }
 }
-
-btf.isJqueryLoad(dybubblefn);
