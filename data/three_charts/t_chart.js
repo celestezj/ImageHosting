@@ -31,5 +31,5 @@ window.addEventListener("resize", function() {
                 categories_chart.style.visibility="visible";
             }
         }
-    },180);
+    },200);
 });
