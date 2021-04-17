@@ -14,7 +14,7 @@
 if (document.getElementById("gitcalendar")){
   var gitcalendar_simplemode = false;
   var gitcalendar_user = "muggledy";
-  var gitcalendar_apiurl = '';
+  var gitcalendar_apiurl = 'python-github-calendar-api-rho.vercel.app';
   var gitcalendar_color = ['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
   var gitcalendar = new Vue({
     el: '#gitcalendar',
