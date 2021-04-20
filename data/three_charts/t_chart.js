@@ -68,13 +68,15 @@ window.addEventListener('orientationchange', function(event){
     //}else{
 	//手机端竖屏处理事件
     //}
-    var dyjishuqi = 0;
-    var dydingshiqi = setInterval(function(){
-            dyjishuqi+=1;
-            if (dyjishuqi>=28){ //连续执行的总次数
-                clearInterval(dydingshiqi);
-            }
-            dyasidebtn=true;
-            dydoresize(0);
-    },30); //时间间隔ms
+    if (document.getElementById("new-posts-chart")||document.getElementById("new-tags-chart")||document.getElementById("new-categories-chart")){
+        var dyjishuqi = 0;
+        var dydingshiqi = setInterval(function(){
+                dyjishuqi+=1;
+                if (dyjishuqi>=28){ //连续执行的总次数
+                    clearInterval(dydingshiqi);
+                }
+                dyasidebtn=true;
+                dydoresize(0);
+        },30); //时间间隔ms
+    }
 });
