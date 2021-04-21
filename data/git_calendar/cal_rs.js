@@ -9,12 +9,12 @@ if (dyhiddenbutton) {
             var dyjishuqi = 0;
             var dydingshiqi = setInterval(function(){
                 dyjishuqi+=1;
-                if (dyjishuqi>=22){
+                if (dyjishuqi>=34){
                     clearInterval(dydingshiqi);
                 }
                 dyasidebtn=true;
                 dydoresize(0);
-            },20);
+            },12);
         }else{
             dydoresize(0);
         }
