@@ -1,4 +1,4 @@
-//禁止鼠标右击
+//禁止鼠标右击（https://blog.csdn.net/hanierming/article/details/109625183）
       document.oncontextmenu = function() {
         event.returnValue = false;
       };
