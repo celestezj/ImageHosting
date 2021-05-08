@@ -159,3 +159,11 @@ input[type=radio] {
     -moz-appearance: none;
   }
 }
+
+::-webkit-scrollbar {
+	  width: 5px;
+}
+
+::-webkit-scrollbar-corner {
+	  background-color: #f6f6f6;
+}
