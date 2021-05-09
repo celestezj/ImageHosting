@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>待办事项</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/celestezj/ImageHosting@v0.1/img/20210207091812.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/celestezj/ImageHosting@v2.3/data/daiban/css/style.css">
+
+</head>
+<body>
+
+<div class="app-container" id="taskList">
+  <h1 class="app-header">待办事项清单</h1>
+  <div class="add-task">
+    <input type="text" autocomplete="off" placeholder="添加新事项" v-model="tasks.name" @keyup.enter="newItem" class="task-input">
+		<input type="submit" value="" class="submit-task" @click="newItem" title="Add Task">
+  </div>
+  <ul class="task-list">
+		<li class="task-list-item" v-for="task in tasks">
+			<label class="task-list-item-label">
+        <input type="checkbox" @click="setItem(task)">
+				<span>{{task.name}}</span>
+			</label>
+			<span @click="delItem(task)" class="delete-btn" title="Delete Task">{{task.del}}</span>
+		</li>
+	</ul>
+</div>
+
+<script src='https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/data/daiban/js/vue.min.js'></script>
+<script src="https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/data/daiban/js/script.js"></script>
+
+</body>
+</html>
