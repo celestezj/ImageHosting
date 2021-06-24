@@ -1,0 +1,27 @@
+<html>
+<head>
+<style>
+.dyslideshow img{
+    width:200px;
+    height:200px;
+}
+</style>
+</head>
+<body>
+<div class="dyslideshow" style="position:absolute;left: 50%;transform: translate(-50%);">
+    <div id='slideshow_content' style='padding-top: 10px; padding-bottom: 10px;'>
+            <img src='https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/img/20210321130330.jpg' />
+            <img src='https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/img/20210321130337.jpg' />
+            <img src='https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/img/20210321130343.jpg' />
+            <img src='https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/img/20210321130314.jpg' />
+            <img src='https://cdn.jsdelivr.net/gh/celestezj/ImageHosting/img/20210321130325.jpg' />
+    </div>
+    <center>
+        <input type='button' value='Play' onclick='playimage("slideshow_content");' />
+        <input type='button' value='Pause' onclick='pauseimage("slideshow_content");' />
+        <input type='button' value='Close' onclick='stopimage("slideshow_content");' />
+    </center>
+</div>
+</body>
+<script src="./imgplayer.js"></script>
+</html>
