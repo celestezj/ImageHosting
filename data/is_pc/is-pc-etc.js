@@ -37,3 +37,9 @@ function loadJS( url, callback ){
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
 }
+
+function getRelativeUrl(){ //获取浏览器当前URL地址的相对路径部分
+    var url = document.location.toString();
+    var arr = url.split("//");
+    return arr[1].substring(arr[1].indexOf("/"));
+}
