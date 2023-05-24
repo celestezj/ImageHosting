@@ -240,17 +240,50 @@ if (document.getElementById("gitcalendar")){
       addlastmonth();
       responsiveChart();
   }
-  
-  //fetch_v2() defined in butterfly(blog) main.js
-  fetch_v2(githubapiurl, {timeout:3000})
-    .then(data => data.json())
-    .then(data => {
-      loadgitcalendardata(data);
-    })
-    .catch(function(error) {
-      console.log(error);
-      loadgitcalendardata(JSON.parse(oldbackupgitcalendardata));
-    });
+  function is_time_the_same_day(old_timestamp) {
+    var current_time = new Date(Date.now());
+    var old_time = new Date(Number(old_timestamp));
+    if (current_time.getFullYear() === old_time.getFullYear() && current_time.getMonth() === old_time.getMonth() && current_time.getDate() === old_time.getDate()) {
+        return true;
+    }
+    return false;
+  }
+  function get_gitcalendar_data_from_local() {
+    if (typeof(saveToLocal.get('local_gitcalendar_save_timestamp')) === "undefined") {
+        return null;
+    }
+    if (is_time_the_same_day(saveToLocal.get('local_gitcalendar_save_timestamp'))) {
+        var localgitcaneldarsavedata = saveToLocal.get('local_gitcalendar_save_data');
+        if (typeof(localgitcaneldarsavedata) === 'undefined') {
+            return null;
+        }
+        return localgitcaneldarsavedata;
+    }
+    return null;
+  }
+  function fetch_func() {
+    if (typeof(fetch_v2) === 'undefined') { //fetch_v2 defined in butterfly(blog)'s main.js
+        return fetch(githubapiurl)
+    } else {
+        return fetch_v2(githubapiurl, {timeout:3000})
+    }
+  }
+  var localgitcalendardata = get_gitcalendar_data_from_local();
+  if (localgitcalendardata !== null) {
+      loadgitcalendardata(localgitcalendardata);
+  } else {
+      fetch_func()
+      .then(data => data.json())
+      .then(data => {
+          loadgitcalendardata(data);
+          saveToLocal.set('local_gitcalendar_save_timestamp', Date.now(), 2);
+          saveToLocal.set('local_gitcalendar_save_data', data, 2);
+      })
+      .catch(function(error) {
+          console.log(error);
+          loadgitcalendardata(JSON.parse(oldbackupgitcalendardata));
+      });
+  }
   
   //手机版更换为svg绘制
   if (document.getElementById("gitcalendar").offsetWidth < 500) {
