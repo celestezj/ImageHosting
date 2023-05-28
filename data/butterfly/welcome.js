@@ -186,7 +186,7 @@ function showWelcome() {
     }
 }
 //{"status":0,"message":"Success","request_id":"d960fed44d7242e48093ac0ba49156b8","result":{"ip":"240e:47b:4a20:52ce:a79c:f28f:e6ff:a844","location":{"lat":31.29834,"lng":120.58319},"ad_info":{"nation":"中国","province":"江苏省","city":"苏州市","district":"","adcode":320500,"nation_code":156}}}
-fetch("https://apis.map.qq.com/ws/location/v1/ip?key=XKABZ-NUHE3-BUC32-Y2Q2D-WC2S5-U6BDC")
+fetch("https://apis.map.qq.com/ws/location/v1/ip?key=E64BZ-WL2WZ-EM4X3-7VHYX-T6SHQ-OEBOX&output=jsonp")
 .then(data => data.json())
 .then(data => {
     ipLoacation = data;
