@@ -126,13 +126,15 @@
     position: absolute;
 }
 #donategithub {
+    display: inline-block;
 	width: 14px;
 	height: 14px;
 	left: 295px;
 	top: 25px;
-	background: no-repeat center center url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png);
+	-webkit-mask: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
+	mask: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
 	opacity: 0.3;
-	transform: rotatez(15deg );
+	transform: rotatez(15deg);
 }
 
 #DonateMainBox.showQR {
@@ -216,6 +218,5 @@
     padding: 0;
 }
 [data-theme="dark"] #donategithub{
-    background-image: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614003446.png);
-    background-size: 14px 14px !important;
+    background-color: white;
 }
