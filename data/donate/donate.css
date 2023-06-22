@@ -133,6 +133,7 @@
 	top: 25px;
 	-webkit-mask: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
 	mask: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
+    background-color: black;
 	opacity: 0.3;
 	transform: rotatez(15deg);
 }
