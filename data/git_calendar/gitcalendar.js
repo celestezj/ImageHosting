@@ -262,6 +262,7 @@ if (document.getElementById("gitcalendar")){
     return null;
   }
   function fetch_func() {
+    loadgitcalendardata(JSON.parse(oldbackupgitcalendardata));
     if (typeof(fetch_v2) === 'undefined') { //fetch_v2 defined in butterfly(blog)'s main.js
         return fetch(githubapiurl)
     } else {
