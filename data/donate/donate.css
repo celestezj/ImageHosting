@@ -25,7 +25,7 @@
 	height: 70px;
 	line-height: 70px;
 	color: #fff;
-	background: #ffd886 url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/like.svg) no-repeat center 10px;
+	background: #ffd886 url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/like.svg) no-repeat center 10px;
 	background-size: 20px;
 	border-radius: 35px;
 	text-align: center;
@@ -75,10 +75,10 @@
 	display: block;
 }
 #donateBox #PayPal {
-	background-image: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/paypal.svg);
+	background-image: url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/paypal.svg);
 }
 #donateBox>#BTC {
-	background-image: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/bitcoin.svg);
+	background-image: url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/bitcoin.svg);
 }
 #donateBox>#BTC:hover {
 	overflow: visible;
@@ -87,10 +87,10 @@
 	cursor: pointer;
 }
 #donateBox #AliPay {
-	background-image: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/alipay.svg);
+	background-image: url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/alipay.svg);
 }
 #donateBox #DonateWeChat {
-	background-image: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/wechat.svg);
+	background-image: url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/wechat.svg);
 }
 #QRBox {
 	top: 0;
@@ -131,8 +131,8 @@
 	height: 14px;
 	left: 295px;
 	top: 25px;
-	-webkit-mask: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
-	mask: url(https://cdn.staticaly.com/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
+	-webkit-mask: url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
+	mask: url(https://cdn.statically.io/gh/celestezj/ImageHosting/master/data/donate/img/20210614100954.png) no-repeat;
     background-color: black;
 	opacity: 0.3;
 	transform: rotatez(15deg);
