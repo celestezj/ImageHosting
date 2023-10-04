@@ -2,7 +2,7 @@ var swiper = new Swiper('.blog-slider', {
   passiveListeners: true,
   spaceBetween: 30,
   effect: 'fade',
-  loop: true,
+  loop: false,
   autoplay: {
     disableOnInteraction: true,
     delay: 3000
