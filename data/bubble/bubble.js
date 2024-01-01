@@ -23,7 +23,7 @@ function qipao() {
         function h() {
             if (e)
                 for (var t in r.clearRect(0, 0, o, a), i) i[t].draw();
-            requestAnimationFrame(h)
+            window.bubbleAnimationFrameId = requestAnimationFrame(h)
         }
 
         function f() {
@@ -46,5 +46,11 @@ function qipao() {
     }
 }(jQuery);
 qipao();
+} else {
+/*2024.1.1 Chrome Performance发现文章页面切换到非文章页面后bubble气泡帧绘图动作仍在继续导致性能下降，此时应当取消动画*/
+if ((typeof window.bubbleAnimationFrameId !== 'undefined') && (window.bubbleAnimationFrameId != 0)) {
+    cancelAnimationFrame(window.bubbleAnimationFrameId);
+    window.bubbleAnimationFrameId = 0;
+}
 }
 }
